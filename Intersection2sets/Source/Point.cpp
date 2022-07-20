@@ -53,6 +53,14 @@ bool Point::operator<=(const Point& obj)
 		return false;
 }
 
+bool Point::operator>=(const Point& obj)
+{
+	if (this->x >= obj.x)
+		return true;
+	else
+		return false;
+}
+
 bool Point::isEqual(const Point& obj)
 {
 	if (this->x == obj.x && this->y == obj.y)

@@ -11,6 +11,7 @@ public:
 	bool operator>(const Point& obj);
 	bool operator==(const Point& obj);
 	bool operator<=(const Point& obj);
+	bool operator>=(const Point& obj);
 	bool isEqual(const Point& obj);
 
 private:

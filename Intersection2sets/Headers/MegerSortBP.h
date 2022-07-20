@@ -9,13 +9,12 @@ public:
 
 private:
 	int _size;
-	int _elment;
 	Point aux;
 	Point* ptrA;
 	Point* ptrSub;
 	void exchange(Point a, Point b);
-	void _ascending(int size, int begin, int end, int total);//TODO: REVISAR LOS ATRIBUTOS QUE RECIBE ESTA FUNCION.
-	
+	void _ascending(int total, int begin, int end);
+	void _descending(int total, int begin, int end);
 	
 };
 

@@ -1,8 +1,12 @@
-// PROBLEM:
+// PROBLEMS:
 
-//Pregunta 1
+//Problem 1
 //Intersection of two sets.Given two arrays a[] and b[], each containing n distinct 2D points in the plane,
 //design a subquadratic algorithm to count the number of points that are contained both in array a[] and arrayb[]
+
+//Problem 2
+//Permutation.Given two integer arrays of size n, design a subquadratic algorithm to determine
+//whether one is a permutation of the other.That is, do they contain exactly the same entries but, possibly, in a different order.
 
 
 #include "../Headers/Pch.h"
@@ -17,13 +21,10 @@ int main()
 {
     Point* a = new Point[4];
     Point* b = new Point[5];
-
-
-    
-    
-    a[1] = Point(5, 5);
-    a[2] = Point(3, 3);
-    a[0] = Point(4, 4);
+   
+    a[0] = Point(5, 5);
+    a[1] = Point(3, 3);
+    a[2] = Point(4, 4);
     a[3] = Point(5, 4);
     
     b[0] = Point(5, 4);
@@ -35,14 +36,14 @@ int main()
     
    
     
-    cout << "\nmatches: " << countMatches(a, 4, b, 5);
-    /*
+    cout << "\nmatches: " << countMatches(a, 2, b, 5)<<"\n";
+    
     MegerSortBP as;
-    as.ascendingOrder(a, 3);
-    for (int i = 0; i < 3; i++)
+    as.descendingOrder(a, 4);
+    for (int i = 0; i < 4; i++)
     {
         cout << "\n Punto a: "<< "x "<<a[i].getX()<<" y "<<a[i].getY();
-    }*/
+    }
 
     system("pause > null");
     return 0;
