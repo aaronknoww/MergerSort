@@ -17,8 +17,7 @@ private:
 	int lenLeft;
 	Dt* ptrRight;
 	int lenRight;
-	
-	void exchange(Dt a, Dt b);
+		
 	void _ascending(Dt*& left, Dt*& right, int begin, int end);
 	void _descending(Dt*& left, Dt*& right, int begin, int end);
 	int  _copySubArray(Dt*& subArray, int begin, int end);

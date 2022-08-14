@@ -22,29 +22,33 @@ int main()
 {
     Point* a = new Point[4];
     Point* b = new Point[5];
-    int cantidad = 7;
+    int cantidad = 9;
     int* ipt = new int[cantidad];
     int* ipt2 = new int[cantidad];
 
-    ipt[0] = 5;
-    ipt[1] = 2;
-    ipt[2] = 4;
+    ipt[0] = 9;
+    ipt[1] = 8;
+    ipt[2] = 7;
     ipt[3] = 6;
-    ipt[4] = 3;
-    ipt[5] = 10;
-    ipt[6] = 7;
+    ipt[4] = 5;
+    ipt[5] = 4;
+    ipt[6] = 3;
+    ipt[7] = 2;
+    ipt[8] = 1;
 
     ipt2[0] = 5;
     ipt2[1] = 2;
     ipt2[2] = 4;
     ipt2[3] = 6;
     ipt2[4] = 3;
-    ipt2[5] = 10;
+    ipt2[5] = 9;
     ipt2[6] = 7;
+    ipt2[7] = 1;
+    ipt2[8] = 8;
     
-    MegerSortBP<int> ord;
+    MegerSortBP<int> ord, ord2;
     ord.ascendingOrder(ipt, cantidad);
-    ord.descendingOrder(ipt2, cantidad);
+    ord2.descendingOrder(ipt2, cantidad);
    
     //a[0] = Point(5, 5);
     //a[1] = Point(3, 3);

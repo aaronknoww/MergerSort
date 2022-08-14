@@ -40,27 +40,29 @@ void MegerSortBP<Dt>::ascendingOrder(Dt*& array, int elements)
 		for (int i = 0; i < elements/_size; i++)
 		{
 			contador += _size;
-			//TODO: AJUSTAR LOS INDICES QUE HAY QUE PASAR EL INDICE CENTRAL ESTA DANDO PROMBLEMAS.
 			begin = i * _size;
 			end = begin + _size - 1;
 			central = begin + _size / 2;
-			lenLeft = _copySubArray(ptrLeft, begin, central-1);
-			
-			
+			lenLeft = _copySubArray(ptrLeft, begin, central-1);			
 			lenRight = _copySubArray(ptrRight, central, (end<elements)?end:elements);
 			_ascending(ptrLeft, ptrRight, begin, (end < elements) ? end : elements);
 		}
 		if (contador < elements && contador > 0)
 		{
 			
-			lenLeft = _copySubArray(ptrLeft, 0, contador-1);
-			lenRight = _copySubArray(ptrRight, contador, elements-1);
-			_ascending(ptrLeft, ptrRight, 0, elements-1);
+			lenLeft = _copySubArray(ptrLeft, contador - _size, contador - 1);
+			lenRight = _copySubArray(ptrRight, contador, elements - 1); // probar con diferente valores
+			_ascending(ptrLeft, ptrRight, contador - _size, elements - 1);
 		}
 		contador = 0;
 
 	} while (_size < elements);
-
+	
+	
+	delete ptrLeft;
+	delete ptrRight;
+	ptrLeft = nullptr;
+	ptrRight = nullptr;
 
 }
 template<typename Dt>
@@ -88,37 +90,23 @@ void MegerSortBP<Dt>::descendingOrder(Dt*& array, int elements)
 		for (int i = 0; i < elements / _size; i++)
 		{
 			contador += _size;
-			//TODO: AJUSTAR LOS INDICES QUE HAY QUE PASAR EL INDICE CENTRAL ESTA DANDO PROMBLEMAS.
 			begin = i * _size;
 			end = begin + _size - 1;
 			central = begin + _size / 2;
 			lenLeft = _copySubArray(ptrLeft, begin, central - 1);
-
-
 			lenRight = _copySubArray(ptrRight, central, (end < elements) ? end : elements);
 			_descending(ptrLeft, ptrRight, begin, (end < elements) ? end : elements);
 		}
 		if (contador < elements && contador > 0)
-		{
-
-			lenLeft = _copySubArray(ptrLeft, 0, contador - 1);
-			lenRight = _copySubArray(ptrRight, contador, elements - 1);
-			_descending(ptrLeft, ptrRight, 0, elements - 1);
+		{			
+			lenLeft = _copySubArray(ptrLeft, contador-_size, contador - 1);
+			lenRight = _copySubArray(ptrRight, contador, elements - 1); // probar con diferente valores
+			_descending(ptrLeft, ptrRight,contador-_size, elements - 1);
 		}
 		contador = 0;
 
 	} while (_size < elements);
 }
-
-template<typename Dt>
-void MegerSortBP<Dt>::exchange(Dt a, Dt b)
-{
-
-	aux = a;
-	a = b;
-	b = aux;
-}
-
 template<typename Dt>
 void MegerSortBP<Dt>::_ascending(Dt*& left, Dt*& right, int begin, int end)
 {
@@ -190,7 +178,7 @@ void MegerSortBP<Dt>::_descending(Dt*& left, Dt*& right, int begin, int end)
 				iRight++;
 			}
 		}
-		else if (iLeft >= lenLeft) // Ultima modificacion
+		else if (iLeft >= lenLeft) 
 		{
 			ptrMain[begin + i] = ptrRight[iRight];
 			iRight++;
@@ -209,7 +197,7 @@ void MegerSortBP<Dt>::_descending(Dt*& left, Dt*& right, int begin, int end)
 template<typename Dt>
 int MegerSortBP<Dt>::_copySubArray(Dt*& subArray, int begin, int end)
 {
-	int elements = end - begin;  //(((end - begin) / 2) == 0) ? 1 : (end - begin) / 2;
+	int elements = end - begin;  
 	int i = 0;
 	for (; i <= elements; i++)
 		subArray[i] = ptrMain[begin + i];
