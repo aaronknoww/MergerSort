@@ -1,20 +1,27 @@
 #pragma once
 #include "Point.h"
+
+template<typename Dt>
 class MegerSortBP
 {
 public:
 	MegerSortBP();
-	void ascendingOrder(Point*& arr, int elements);
-	void descendingOrder(Point*& arr, int elements);
+	void ascendingOrder(Dt*& arr, int elements);
+	void descendingOrder(Dt*& arr, int elements);
 
 private:
 	int _size;
-	Point aux;
-	Point* ptrA;
-	Point* ptrSub;
-	void exchange(Point a, Point b);
-	void _ascending(int total, int begin, int end);
-	void _descending(int total, int begin, int end);
+	Dt  aux;
+	Dt* ptrMain;
+	Dt* ptrLeft;
+	int lenLeft;
+	Dt* ptrRight;
+	int lenRight;
+	
+	void exchange(Dt a, Dt b);
+	void _ascending(Dt*& left, Dt*& right, int begin, int end);
+	void _descending(Dt*& left, Dt*& right, int begin, int end);
+	int  _copySubArray(Dt*& subArray, int begin, int end);
 	
 };
 

@@ -12,6 +12,7 @@
 #include "../Headers/Pch.h"
 #include "../Headers/Point.h"
 #include "../Headers/MegerSortBP.h"
+#include "../Source/MegerSortBP.cpp"
 
 using namespace std;
 
@@ -21,28 +22,57 @@ int main()
 {
     Point* a = new Point[4];
     Point* b = new Point[5];
-   
-    a[0] = Point(5, 5);
-    a[1] = Point(3, 3);
-    a[2] = Point(4, 4);
-    a[3] = Point(5, 4);
+    int cantidad = 7;
+    int* ipt = new int[cantidad];
+    int* ipt2 = new int[cantidad];
+
+    ipt[0] = 5;
+    ipt[1] = 2;
+    ipt[2] = 4;
+    ipt[3] = 6;
+    ipt[4] = 3;
+    ipt[5] = 10;
+    ipt[6] = 7;
+
+    ipt2[0] = 5;
+    ipt2[1] = 2;
+    ipt2[2] = 4;
+    ipt2[3] = 6;
+    ipt2[4] = 3;
+    ipt2[5] = 10;
+    ipt2[6] = 7;
     
-    b[0] = Point(5, 4);
-    b[1] = Point(3, 3);
-    b[2] = Point(4, 4);
-    b[3] = Point(5, 5);
-    b[4] = Point(5, 5);
+    MegerSortBP<int> ord;
+    ord.ascendingOrder(ipt, cantidad);
+    ord.descendingOrder(ipt2, cantidad);
+   
+    //a[0] = Point(5, 5);
+    //a[1] = Point(3, 3);
+    //a[2] = Point(4, 4);
+    //a[3] = Point(5, 4);
+    //
+    //b[0] = Point(5, 4);
+    //b[1] = Point(3, 3);
+    //b[2] = Point(4, 4);
+    //b[3] = Point(5, 5);
+    //b[4] = Point(5, 5);
 
     
    
+    //
+    //cout << "\nmatches: " << countMatches(a, 2, b, 5)<<"\n";
+    //
+    //MegerSortBP<Point> as;
+    //as.descendingOrder(a, 4);
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    cout << "\n Punto a: "<< "x "<<a[i].getX()<<" y "<<a[i].getY();
+    //}
+
     
-    cout << "\nmatches: " << countMatches(a, 2, b, 5)<<"\n";
-    
-    MegerSortBP as;
-    as.descendingOrder(a, 4);
-    for (int i = 0; i < 4; i++)
+    for (size_t i = 0; i < cantidad; i++)
     {
-        cout << "\n Punto a: "<< "x "<<a[i].getX()<<" y "<<a[i].getY();
+        cout << "\n Punto a: " << "x " << ipt[i]<<"  ipt2: "<<ipt2[i];
     }
 
     system("pause > null");
@@ -52,7 +82,7 @@ int main()
 
 int countMatches(Point*& a, int elemA, Point*& b, int elemB)
 {
-    MegerSortBP ascending;
+    MegerSortBP<Point> ascending;
     ascending.ascendingOrder(a, elemA);
     ascending.ascendingOrder(b, elemB);
     if (a[elemA - 1] < b[0] || b[elemB - 1] < a[0])
