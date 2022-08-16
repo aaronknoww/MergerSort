@@ -31,7 +31,7 @@ int main()
     ipt[2] = 7;
     ipt[3] = 6;
     ipt[4] = 5;
-    ipt[5] = 4;
+    ipt[5] = 5;
     ipt[6] = 3;
     ipt[7] = 2;
     ipt[8] = 1;
