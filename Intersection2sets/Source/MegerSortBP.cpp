@@ -12,6 +12,7 @@ MegerSortBP<Dt>::MegerSortBP()
 	_size = 0;
 
 }
+
 template<typename Dt>
 void MegerSortBP<Dt>::ascendingOrder(Dt*& array, int elements)
 {
@@ -58,12 +59,6 @@ void MegerSortBP<Dt>::ascendingOrder(Dt*& array, int elements)
 
 	} while (_size < elements);
 	
-	
-	delete ptrLeft;
-	delete ptrRight;
-	ptrLeft = nullptr;
-	ptrRight = nullptr;
-
 }
 template<typename Dt>
 void MegerSortBP<Dt>::descendingOrder(Dt*& array, int elements)

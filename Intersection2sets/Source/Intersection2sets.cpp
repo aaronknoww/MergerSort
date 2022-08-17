@@ -4,10 +4,6 @@
 //Intersection of two sets.Given two arrays a[] and b[], each containing n distinct 2D points in the plane,
 //design a subquadratic algorithm to count the number of points that are contained both in array a[] and arrayb[]
 
-//Problem 2
-//Permutation.Given two integer arrays of size n, design a subquadratic algorithm to determine
-//whether one is a permutation of the other.That is, do they contain exactly the same entries but, possibly, in a different order.
-
 
 #include "../Headers/Pch.h"
 #include "../Headers/Point.h"
@@ -20,65 +16,66 @@ using namespace std;
 int countMatches(Point*& a, int elemA, Point*& b, int elemB);
 int main()
 {
-    Point* a = new Point[4];
-    Point* b = new Point[5];
-    int cantidad = 9;
-    int* ipt = new int[cantidad];
-    int* ipt2 = new int[cantidad];
+    //int cantidad = 9;
+    //int* ipt = new int[cantidad];
+    //int* ipt2 = new int[cantidad];
 
-    ipt[0] = 9;
-    ipt[1] = 8;
-    ipt[2] = 7;
-    ipt[3] = 6;
-    ipt[4] = 5;
-    ipt[5] = 5;
-    ipt[6] = 3;
-    ipt[7] = 2;
-    ipt[8] = 1;
+    //ipt[0] = 9;
+    //ipt[1] = 8;
+    //ipt[2] = 7;
+    //ipt[3] = 6;
+    //ipt[4] = 5;
+    //ipt[5] = 5;
+    //ipt[6] = 3;
+    //ipt[7] = 2;
+    //ipt[8] = 1;
 
-    ipt2[0] = 5;
-    ipt2[1] = 2;
-    ipt2[2] = 4;
-    ipt2[3] = 6;
-    ipt2[4] = 3;
-    ipt2[5] = 9;
-    ipt2[6] = 7;
-    ipt2[7] = 1;
-    ipt2[8] = 8;
-    
-    MegerSortBP<int> ord, ord2;
-    ord.ascendingOrder(ipt, cantidad);
-    ord2.descendingOrder(ipt2, cantidad);
+    //ipt2[0] = 5;
+    //ipt2[1] = 2;
+    //ipt2[2] = 4;
+    //ipt2[3] = 6;
+    //ipt2[4] = 3;
+    //ipt2[5] = 9;
+    //ipt2[6] = 7;
+    //ipt2[7] = 1;
+    //ipt2[8] = 8;
+    //
+    //MegerSortBP<int> ord, ord2;
+    ////ord.ascendingOrder(ipt, cantidad);
+    //ord.descendingOrder(ipt, cantidad);
    
-    //a[0] = Point(5, 5);
-    //a[1] = Point(3, 3);
-    //a[2] = Point(4, 4);
-    //a[3] = Point(5, 4);
-    //
-    //b[0] = Point(5, 4);
-    //b[1] = Point(3, 3);
-    //b[2] = Point(4, 4);
-    //b[3] = Point(5, 5);
-    //b[4] = Point(5, 5);
-
-    
-   
-    //
-    //cout << "\nmatches: " << countMatches(a, 2, b, 5)<<"\n";
-    //
-    //MegerSortBP<Point> as;
-    //as.descendingOrder(a, 4);
-    //for (int i = 0; i < 4; i++)
+    //for (size_t i = 0; i < cantidad; i++)
     //{
-    //    cout << "\n Punto a: "<< "x "<<a[i].getX()<<" y "<<a[i].getY();
+    //    cout << "\n Punto a: " << "x " << ipt[i] << "  ipt2: ";// << ipt2[i];
     //}
 
+    Point* a = new Point[4];
+    Point* b = new Point[5];
+
+    a[0] = Point(5, 5);
+    a[1] = Point(3, 3);
+    a[2] = Point(4, 4);
+    a[3] = Point(5, 4);
     
-    for (size_t i = 0; i < cantidad; i++)
+    b[0] = Point(5, 4);
+    b[1] = Point(3, 3);
+    b[2] = Point(3, 3);
+    b[3] = Point(5, 5);
+    b[4] = Point(5, 5);
+
+    
+   
+    
+    cout << "\nmatches: " << countMatches(a, 4, b, 5)<<"\n";
+    
+    MegerSortBP<Point> as;
+    as.descendingOrder(a, 4);
+    for (int i = 0; i < 4; i++)
     {
-        cout << "\n Punto a: " << "x " << ipt[i]<<"  ipt2: "<<ipt2[i];
+        cout << "\n Punto a: "<< "x "<<a[i].getX()<<" y "<<a[i].getY();
     }
 
+    
     system("pause > null");
     return 0;
 
